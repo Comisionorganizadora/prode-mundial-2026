@@ -193,7 +193,7 @@ export default function ProdePage() {
 
   const getResultStyle = (match: any) => {
     if (!match.is_finished) {
-      return "bg-black text-white";
+      return "bg-gray-200 text-black";
     }
 
     const predHome = Number(predictions[match.id]?.home);
@@ -321,11 +321,15 @@ export default function ProdePage() {
 
         {visibleMatches.map((match) => (
           <div key={match.id} className={`border rounded p-4 mb-4 ${getResultStyle(match)} ${predictions[match.id]?.double ? "border-4 border-amber-500" : ""}`}>
+            <div className="text-sm font-semibold text-gray-700 mb-1">
+              ⚽ Partido {match.match_number} | {new Date(match.match_date).toLocaleDateString("es-AR")} | {new Date(match.match_date).toLocaleTimeString("es-AR", { hour: "2-digit",  minute: "2-digit",  hour12: false, })} hs
+            </div>
+
             <h2 className="font-bold">
               {match.team_home} vs {match.team_away}
             </h2>
 
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm text-gray-600 mb-3">
               {match.stage}
             </p>
 

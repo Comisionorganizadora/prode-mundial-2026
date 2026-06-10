@@ -196,21 +196,21 @@ export default function RankingPage() {
 
         <table className="w-full border mb-10">
           <thead>
-            <tr className="bg-gray-100 border-b">
-              <th className="p-3">Pos</th>
-              <th className="p-3 text-left">Participante</th>
-              <th className="p-3 text-center">Puntos</th>
-              <th className="p-3 text-center">Especiales</th>
-              <th className="p-3 text-center">Aciertos</th>
-              <th className="p-3 text-center">Exactos</th>
-              <th className="p-3 text-center">Total</th>
-              <th className="p-3 text-center">%</th>
+            <tr className="bg-gray-200 border-b text-black">
+              <th className="p-3 text-black">Pos</th>
+              <th className="p-3 text-left text-black">Participante</th>
+              <th className="p-3 text-center text-black">Puntos</th>
+              <th className="p-3 text-center text-black">Especiales</th>
+              <th className="p-3 text-center text-black">Aciertos</th>
+              <th className="p-3 text-center text-black">Exactos</th>
+              <th className="p-3 text-center text-black">Total</th>
+              <th className="p-3 text-center text-black">%</th>
             </tr>
           </thead>
 
           <tbody>
             {ranking.map((user, index) => (
-              <tr key={user.id} className="border-b">
+              <tr key={user.id} className="border-b text-black">
                 <td className="p-3 text-center">
                   {getPosition(index)}
                 </td>
@@ -250,10 +250,10 @@ export default function RankingPage() {
           .map((match) => (
             <div
               key={match.id}
-              className="border rounded p-3 mb-4 bg-white"
+              className="border rounded p-3 mb-4 bg-gray-100 text-black"
             >
-              <div className="text-xs text-gray-500 mb-1">
-                #{match.match_number} ✔ FINAL
+              <div className="text-sm font-semibold text-gray-700 mb-2">
+                ⚽ Partido {match.match_number} | {new Date(match.match_date).toLocaleDateString("es-AR")} | {new Date(match.match_date).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", hour12: false })} hs ✔ FINAL
               </div>
 
               <h3 className="font-semibold">
@@ -264,7 +264,7 @@ export default function RankingPage() {
                 {match.home_score} - {match.away_score}
               </div>
 
-              <table className="w-full text-sm">
+              <table className="w-full text-sm text-black">
                 <tbody>
                   {users
                     .filter(
