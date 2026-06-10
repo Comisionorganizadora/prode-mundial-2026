@@ -192,20 +192,34 @@ export default function ProdePage() {
 
 
   const getResultStyle = (match: any) => {
-    if (!match.is_finished) return "";
+    if (!match.is_finished) {
+      return "bg-black text-white";
+    }
 
     const predHome = Number(predictions[match.id]?.home);
     const predAway = Number(predictions[match.id]?.away);
     const realHome = Number(match.home_score);
     const realAway = Number(match.away_score);
 
-    const exact = predHome === realHome && predAway === realAway;
-    if (exact) return "bg-green-100";
+    const exact =
+      predHome === realHome &&
+      predAway === realAway;
 
-    const predSign = predHome > predAway ? 1 : predHome < predAway ? -1 : 0;
-    const realSign = realHome > realAway ? 1 : realHome < realAway ? -1 : 0;
+    if (exact) {
+      return "bg-green-100 text-black";
+    }
 
-    return predSign === realSign ? "bg-yellow-100" : "bg-red-100";
+    const predSign =
+      predHome > predAway ? 1 :
+      predHome < predAway ? -1 : 0;
+
+    const realSign =
+      realHome > realAway ? 1 :
+      realHome < realAway ? -1 : 0;
+
+    return predSign === realSign
+      ? "bg-yellow-100 text-black"
+      : "bg-red-100 text-black";
   };
 
   const getResultInfo = (match: any) => {
@@ -229,20 +243,20 @@ export default function ProdePage() {
     if (exact) {
       return {
         text: "🟢 Exacto",
-        className: "text-black",
+        className: "text-green-700",
       };
     }
 
     if (predSign === realSign) {
       return {
         text: "🟡 Acierto",
-        className: "text-black",
+        className: "text-yellow-700",
       };
     }
 
     return {
       text: "🔴 Error",
-      className: "text-black",
+      className: "text-red-700",
     };
   };
 
@@ -274,7 +288,7 @@ export default function ProdePage() {
       "px-4 py-2 rounded font-medium border";
 
     if (openRounds.includes(round)) {
-      buttonClass += " bg-green-600 text-black";
+      buttonClass += " bg-green-600 text-white";
     } else {
       buttonClass += " bg-white";
     }
@@ -306,12 +320,12 @@ export default function ProdePage() {
         </div>
 
         {visibleMatches.map((match) => (
-          <div key={match.id} className={`border rounded p-4 mb-4 text-black ${getResultStyle(match)} ${predictions[match.id]?.double ? "border-4 border-amber-500" : ""}`}>
+          <div key={match.id} className={`border rounded p-4 mb-4 ${getResultStyle(match)} ${predictions[match.id]?.double ? "border-4 border-amber-500" : ""}`}>
             <h2 className="font-bold">
               {match.team_home} vs {match.team_away}
             </h2>
 
-            <p className="text-sm text-black mb-3">
+            <p className="text-sm text-gray-500 mb-3">
               {match.stage}
             </p>
 
@@ -433,7 +447,7 @@ export default function ProdePage() {
         {openRounds.includes(activeRound || 0) && (
           <button
             onClick={saveAllPredictions}
-            className="bg-green-600 text-black px-6 py-3 rounded"
+            className="bg-green-600 text-white px-6 py-3 rounded"
           >
             Confirmar Pronósticos
           </button>
