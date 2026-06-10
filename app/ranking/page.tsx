@@ -194,7 +194,7 @@ export default function RankingPage() {
           ⚽ {finishedMatches} / {totalMatches} partidos finalizados
         </div>
 
-        <table className="w-full border mb-10">
+        <table className="w-full border border-gray-700 mb-10 bg-gray-800 text-white">
           <thead>
             <tr className="bg-gray-200 border-b text-black">
               <th className="p-3 text-black">Pos</th>
@@ -210,7 +210,9 @@ export default function RankingPage() {
 
           <tbody>
             {ranking.map((user, index) => (
-              <tr key={user.id} className="border-b text-black">
+              <tr
+  key={user.id}
+  className={`border-b border-gray-700 text-white ${    index % 2 === 0 ? "bg-gray-800" : "bg-gray-700"  }`}>
                 <td className="p-3 text-center">
                   {getPosition(index)}
                 </td>
