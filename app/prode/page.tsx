@@ -229,20 +229,20 @@ export default function ProdePage() {
     if (exact) {
       return {
         text: "🟢 Exacto",
-        className: "text-green-700",
+        className: "text-black",
       };
     }
 
     if (predSign === realSign) {
       return {
         text: "🟡 Acierto",
-        className: "text-yellow-700",
+        className: "text-black",
       };
     }
 
     return {
       text: "🔴 Error",
-      className: "text-red-700",
+      className: "text-black",
     };
   };
 
@@ -274,7 +274,7 @@ export default function ProdePage() {
       "px-4 py-2 rounded font-medium border";
 
     if (openRounds.includes(round)) {
-      buttonClass += " bg-green-600 text-white";
+      buttonClass += " bg-green-600 text-black";
     } else {
       buttonClass += " bg-white";
     }
@@ -306,12 +306,12 @@ export default function ProdePage() {
         </div>
 
         {visibleMatches.map((match) => (
-          <div key={match.id} className={`border rounded p-4 mb-4 ${getResultStyle(match)} ${predictions[match.id]?.double ? "border-4 border-amber-500" : ""}`}>
+          <div key={match.id} className={`border rounded p-4 mb-4 text-black ${getResultStyle(match)} ${predictions[match.id]?.double ? "border-4 border-amber-500" : ""}`}>
             <h2 className="font-bold">
               {match.team_home} vs {match.team_away}
             </h2>
 
-            <p className="text-sm text-gray-500 mb-3">
+            <p className="text-sm text-black mb-3">
               {match.stage}
             </p>
 
@@ -433,7 +433,7 @@ export default function ProdePage() {
         {openRounds.includes(activeRound || 0) && (
           <button
             onClick={saveAllPredictions}
-            className="bg-green-600 text-white px-6 py-3 rounded"
+            className="bg-green-600 text-black px-6 py-3 rounded"
           >
             Confirmar Pronósticos
           </button>
