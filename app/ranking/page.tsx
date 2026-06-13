@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 export default function RankingPage() {
   const [ranking, setRanking] = useState<any[]>([]);
@@ -185,16 +186,49 @@ export default function RankingPage() {
     <>
       <Navbar />
 
-      <main className="max-w-6xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-2">
-          📊 Posiciones
-        </h1>
+      <main className="max-w-7xl mx-auto px-1 py-0">
+  <div
+    className="relative overflow-hidden mb-1 rounded-2xl"
+    style={{
+    backgroundImage: "url('/worldcup-header.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center top",
+    backgroundRepeat: "no-repeat",
+    height: "190px",
+    }}
+  >
+    <div className="h-full flex flex-col lg:flex-row items-end justify-between gap-4 px-2">
 
-        <div className="mb-6 text-sm font-semibold text-blue-700">
-          ⚽ {finishedMatches} / {totalMatches} partidos finalizados
-        </div>
+              <div className="flex flex-col justify-end h-full ml-38">
+                <h1 className="text-4xl font-bold text-white">
+                  📊 Posiciones
+                </h1>
 
-        <table className="w-full border border-gray-700 mb-10 bg-gray-800 text-white">
+                <div className="mt-2 text-lg font-semibold text-blue-400">
+                  ⚽ {finishedMatches} / {totalMatches} partidos finalizados
+                </div>
+              </div>
+
+              <div className="flex items-end">
+                <Image
+                  src="/hall-of-fame.png"
+                  alt="Campeones Históricos"
+                  width={520}
+                  height={250}
+                  priority
+                  className="block"
+                  style={{
+                    width: "auto",
+                    height: "180px",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
+
+            </div>
+          </div>
+
+        <table className="w-full border border-gray-700 mb-4 bg-gray-800 text-white">
           <thead>
             <tr className="bg-gray-200 border-b text-black">
               <th className="p-3 text-black">Pos</th>
