@@ -188,18 +188,17 @@ export default function RankingPage() {
 
       <main className="max-w-7xl mx-auto px-1 py-0">
   <div
-    className="relative overflow-hidden mb-1 rounded-2xl"
+    className="relative overflow-hidden mb-1 rounded-2xl h-[140px] lg:h-[190px]"
     style={{
     backgroundImage: "url('/worldcup-header.png')",
     backgroundSize: "cover",
     backgroundPosition: "center top",
     backgroundRepeat: "no-repeat",
-    height: "190px",
     }}
   >
     <div className="h-full flex flex-col lg:flex-row justify-between px-2">
 
-              <div className="flex flex-col justify-center h-full lg:ml-40 ml-20 pt-2">
+              <div className="flex flex-col justify-center h-full lg:ml-40 ml-16 pt-2">
                 <h1 className="text-2xl lg:text-4xl font-bold text-white">
                   📊 Posiciones
                 </h1>
@@ -227,13 +226,13 @@ export default function RankingPage() {
                 <Image
                   src="/hall-of-fame.png"
                   alt="Campeones Históricos"
-                  width={220}
-                  height={80}
+                  width={160}
+                  height={55}
                   priority
-                  className="block lg:hidden mx-auto"
+                  className="block lg:hidden absolute bottom-1 left-1/2 -translate-x-1/2"
                   style={{
                     width: "auto",
-                    height: "80px",
+                    height: "55px",
                     objectFit: "contain",
                   }}
                 />
