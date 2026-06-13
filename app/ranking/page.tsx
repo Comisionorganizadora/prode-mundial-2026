@@ -196,19 +196,19 @@ export default function RankingPage() {
     backgroundRepeat: "no-repeat",
     }}
   >
-    <div className="h-full flex flex-col lg:flex-row justify-between px-2">
+    <div className="h-full flex justify-between items-center px-4 lg:px-8">
 
-              <div className="flex flex-col justify-center h-full lg:ml-40 ml-16 pt-2">
-                <h1 className="text-2xl lg:text-4xl font-bold text-white">
+              <div className="flex flex-col justify-center ml-20 lg:ml-40">
+                <h1 className="text-3xl lg:text-5xl font-bold text-white">
                   📊 Posiciones
                 </h1>
 
-                <div className="mt-1 text-sm lg:text-lg font-semibold text-blue-400">
+                <div className="mt-2 text-base lg:text-xl font-semibold text-blue-400">
                   ⚽ {finishedMatches} / {totalMatches} partidos finalizados
                 </div>
               </div>
 
-              <div className="flex items-end">
+              <div className="flex items-end justify-end">
                 <Image
                   src="/hall-of-fame.png"
                   alt="Campeones Históricos"
@@ -226,10 +226,10 @@ export default function RankingPage() {
                 <Image
                   src="/hall-of-fame.png"
                   alt="Campeones Históricos"
-                  width={160}
-                  height={55}
+                  width={190}
+                  height={70}
                   priority
-                  className="block lg:hidden absolute bottom-1 left-1/2 -translate-x-1/2"
+                  className="block lg:hidden absolute right-2 bottom-2"
                   style={{
                     width: "auto",
                     height: "55px",
