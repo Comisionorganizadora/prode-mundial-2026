@@ -294,8 +294,9 @@ export default function RankingPage() {
           📋 Últimos partidos finalizados
         </h2>
 
-        {matches
+        {[...matches]
           .filter((m) => m.is_finished)
+          .sort((a, b) => b.match_number - a.match_number)
           .map((match) => (
             <div
               key={match.id}
