@@ -130,62 +130,66 @@ export function buildStats({ users, matches, predictions }: any) {
   // 👁️ EL ESPECIALISTA
   // =========================
 
-  const maxExactos = Math.max(
-    ...base.map((u) => u.exactos),
-    0
-  );
-
-  const reyExactos = base.filter(
-    (u) => u.exactos === maxExactos
-  );
-
   // =========================
-  // 🔥 EN LLAMAS
-  // =========================
+// 👁️ EL ESPECIALISTA
+// =========================
 
-  const bestCurrentStreak = Math.max(
-    ...base.map((u) => u.currentStreak),
-    0
-  );
+const maxExactos = Math.max(
+  ...base.map((u: any) => u.exactos),
+  0
+);
 
-  const enLlamasActual = base.filter(
-    (u) =>
-      u.currentStreak === bestCurrentStreak
-  );
+const reyExactos = base.filter(
+  (u: any) => u.exactos === maxExactos
+);
 
-  const bestHistoricStreak = Math.max(
-    ...base.map((u) => u.maxStreak),
-    0
-  );
+// =========================
+// 🔥 EN LLAMAS
+// =========================
 
-  const enLlamasHistorico = base.filter(
-    (u) =>
-      u.maxStreak === bestHistoricStreak
-  );
+const bestCurrentStreak = Math.max(
+  ...base.map((u: any) => u.currentStreak),
+  0
+);
 
-  // =========================
-  // 🥊 EN LA LONA
-  // =========================
+const enLlamasActual = base.filter(
+  (u: any) =>
+    u.currentStreak === bestCurrentStreak
+);
 
-  const bestCurrentDry = Math.max(
-    ...base.map((u) => u.currentDry),
-    0
-  );
+const bestHistoricStreak = Math.max(
+  ...base.map((u: any) => u.maxStreak),
+  0
+);
 
-  const desiertoActual = base.filter(
-    (u) =>
-      u.currentDry === bestCurrentDry
-  );
+const enLlamasHistorico = base.filter(
+  (u: any) =>
+    u.maxStreak === bestHistoricStreak
+);
 
-  const bestHistoricDry = Math.max(
-    ...base.map((u) => u.maxDry),
-    0
-  );
+// =========================
+// 🥊 EN LA LONA
+// =========================
 
-  const desiertoHistorico = base.filter(
-    (u) =>
-      u.maxDry === bestHistoricDry
-  );
+const bestCurrentDry = Math.max(
+  ...base.map((u: any) => u.currentDry),
+  0
+);
+
+const desiertoActual = base.filter(
+  (u: any) =>
+    u.currentDry === bestCurrentDry
+);
+
+const bestHistoricDry = Math.max(
+  ...base.map((u: any) => u.maxDry),
+  0
+);
+
+const desiertoHistorico = base.filter(
+  (u: any) =>
+    u.maxDry === bestHistoricDry
+);
   // =========================
 // 💰 CAZAPUNTOS
 // =========================
