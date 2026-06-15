@@ -8,7 +8,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const role = localStorage.getItem("user_role");
-
     setIsAdmin(role === "admin");
   }, []);
 
@@ -18,46 +17,105 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-black text-white p-4 mb-6">
-      <div className="max-w-6xl mx-auto flex gap-6 items-center">
-        {!isAdmin && (
-          <>
-            <Link href="/prode">
-              🏆 Pronósticos
-            </Link>
+    <nav className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white border-b-4 border-yellow-500 shadow-lg mb-6">
+      <div className="max-w-7xl mx-auto px-4 py-3">
 
-            <Link href="/ranking">
-              📊 Posiciones
-            </Link>
+        <div className="flex flex-col lg:flex-row lg:items-center gap-4">
 
-            <Link href="/especiales">
-              ⭐ Especiales
-            </Link>
-          </>
-        )}
+          <div className="flex flex-col">
+            <span className="font-bold text-xl text-yellow-400">
+              🏆 PRODE MUNDIAL 2026
+            </span>
 
-        {isAdmin && (
-          <>
-            <Link href="/ranking">
-              📊 Posiciones
-            </Link>
+            <span className="text-xs text-gray-300">
+              United States • México • Canadá
+            </span>
+          </div>
 
-            <Link href="/admin-specials">
-              🏆 Especiales Admin
-            </Link>
+          {!isAdmin && (
+            <div className="flex flex-wrap gap-3 lg:gap-5">
 
-            <Link href="/admin">
-              🔧 Admin
-            </Link>
-          </>
-        )}
+              <Link
+                href="/prode"
+                className="hover:text-yellow-300 transition"
+              >
+                🏆 Pronósticos
+              </Link>
 
-        <button
-          onClick={handleLogout}
-          className="ml-auto bg-red-600 hover:bg-red-700 px-3 py-1 rounded"
-        >
-          🚪 Salir
-        </button>
+              <Link
+                href="/especiales"
+                className="hover:text-yellow-300 transition"
+              >
+                ⭐ Finalistas y Campeón
+              </Link>
+
+              <Link
+                href="/ranking"
+                className="hover:text-yellow-300 transition"
+              >
+                📊 Posiciones
+              </Link>
+
+              <Link
+                href="/estadisticas"
+                className="hover:text-yellow-300 transition"
+              >
+                🏅 Estadísticas
+              </Link>
+
+              <Link
+                href="/reglamento"
+                className="hover:text-yellow-300 transition"
+              >
+                📜 Reglamento
+              </Link>
+
+              <Link
+                href="/premios"
+                className="hover:text-yellow-300 transition"
+              >
+                🎁 Premios
+              </Link>
+
+            </div>
+          )}
+
+          {isAdmin && (
+            <div className="flex flex-wrap gap-3 lg:gap-5">
+
+              <Link
+                href="/ranking"
+                className="hover:text-yellow-300 transition"
+              >
+                📊 Posiciones
+              </Link>
+
+              <Link
+                href="/admin-specials"
+                className="hover:text-yellow-300 transition"
+              >
+                🏆 Especiales Admin
+              </Link>
+
+              <Link
+                href="/admin"
+                className="hover:text-yellow-300 transition"
+              >
+                🔧 Admin
+              </Link>
+
+            </div>
+          )}
+
+          <button
+            onClick={handleLogout}
+            className="lg:ml-auto bg-red-600 hover:bg-red-700 px-3 py-2 rounded font-semibold transition"
+          >
+            🚪 Salir
+          </button>
+
+        </div>
+
       </div>
     </nav>
   );
