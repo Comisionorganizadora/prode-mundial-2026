@@ -247,7 +247,7 @@ export default function RankingPage() {
               <th className="p-3 text-black">Pos</th>
               <th className="p-3 text-left text-black">Participante</th>
               <th className="p-3 text-center text-black">Puntos</th>
-              <th className="p-3 text-center text-black">Especiales</th>
+              <th className="p-3 text-center text-black">Finalistas</th>
               <th className="p-3 text-center text-black">Aciertos</th>
               <th className="p-3 text-center text-black">Exactos</th>
               <th className="p-3 text-center text-black">Total</th>
