@@ -53,7 +53,7 @@ export default function Home() {
     <main
       className="min-h-screen flex items-center justify-center px-4 py-6 bg-cover bg-center"
       style={{
-        backgroundImage: "url('/imagen.png')",
+        backgroundImage: "url('/Imagen.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
