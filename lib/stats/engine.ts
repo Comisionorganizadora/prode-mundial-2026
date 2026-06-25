@@ -264,38 +264,50 @@ const cazapuntosHistorico =
     (d) => d.points === bestHistoric
   );
 
-  // =========================
-  // 👁️ LA VIO VENIR
-  // =========================
+ // =========================
+// 👁️ LA VIO VENIR
+// =========================
 
-  const vioVenir: any[] = [];
+const vioVenir: any[] = [];
 
-  finished.forEach((m: any) => {
-    console.log("VIO VENIR MATCH");
-    console.log(m);
-    const correct = players.filter(
-      (u: any) => {
-        const p = predictions.find(
-          (x: any) =>
-            x.user_id === u.id &&
-            x.match_id === m.id
-        );
-
-        return p && isExact(p, m);
-      }
+finished.forEach((m: any) => {
+  const exactos = players.filter((u: any) => {
+    const p = predictions.find(
+      (x: any) =>
+        x.user_id === u.id &&
+        x.match_id === m.id
     );
 
-    if (correct.length === 1) {
-      vioVenir.push({
-  userName: correct[0].name,
-  home: m.team_home,
-  away: m.team_away,
-  homeScore: m.home_score,
-  awayScore: m.away_score,
-  date: m.match_date,
-});
-    }
+    return p && isExact(p, m);
   });
+
+  const acertaronResultado = players.filter((u: any) => {
+    const p = predictions.find(
+      (x: any) =>
+        x.user_id === u.id &&
+        x.match_id === m.id
+    );
+
+    return p && isResult(p, m);
+  });
+
+  // Solo cuenta si el único que acertó el resultado fue
+  // además el único que acertó exacto.
+
+  if (
+    exactos.length === 1 &&
+    acertaronResultado.length === 1
+  ) {
+    vioVenir.push({
+      userName: exactos[0].name,
+      home: m.team_home,
+      away: m.team_away,
+      homeScore: m.home_score,
+      awayScore: m.away_score,
+      date: m.match_date,
+    });
+  }
+});
   // =========================
 // 📅 GANADORES DIARIOS
 // =========================
